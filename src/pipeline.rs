@@ -416,7 +416,11 @@ fn create_uniforms(
         entries: &[
             wgpu::BindGroupEntry {
                 binding: 0,
-                resource: wgpu::BindingResource::Buffer(transform.slice(..)),
+                resource: wgpu::BindingResource::Buffer {
+                    buffer: transform,
+                    offset: 0,
+                    size: None,
+                },
             },
             wgpu::BindGroupEntry {
                 binding: 1,
